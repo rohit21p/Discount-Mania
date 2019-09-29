@@ -1,0 +1,49 @@
+.app-container {
+    padding:0%;
+    margin:0%;
+    display:flex;
+    justify-content: space-between;
+    background-color: darkviolet;
+    min-height: 60px;
+}
+
+ul {
+    padding: 15px;
+    margin:0%;
+}
+
+li {
+    display: inline;
+    margin: 10px;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.brand {
+    color: White;
+    font-family: 'Good Times';
+    font-size: 28px;
+    padding: 10px;
+}
+
+@media(max-width: 768px) {
+    .app-container {
+        flex-flow: column;
+        align-items: center;
+    }
+}
+
+@media(max-width: 324px) {
+    .brand {
+        font-size: 20px;
+        padding: 5px;
+    }
+    li a {
+        font-size: 15px;
+    }
+}
