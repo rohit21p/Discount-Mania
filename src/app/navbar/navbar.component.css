@@ -5,6 +5,8 @@
     justify-content: space-between;
     background-color: darkviolet;
     min-height: 60px;
+    position: fixed;
+    width: 100vw;
 }
 
 ul {
@@ -14,31 +16,46 @@ ul {
 
 li {
     display: inline;
-    margin: 10px;
+    margin: 10px 20px;
 }
 
 li a {
     text-decoration: none;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-family: 'Good Times';
+    font-size: 25px;
 }
 
 .brand {
     color: White;
     font-family: 'Good Times';
-    font-size: 28px;
+    font-size: 30px;
     padding: 10px;
 }
 
-@media(max-width: 768px) {
+.hidden {
+    background: transparent;
+    color: black !important;
+}
+
+@media(max-width: 837px) {
     .app-container {
         flex-flow: column;
         align-items: center;
     }
 }
 
-@media(max-width: 324px) {
+@media(max-width: 394px) {
+    .brand {
+        font-size: 20px;
+        padding: 5px;
+    }
+    li a {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 344px) {
     .brand {
         font-size: 20px;
         padding: 5px;
