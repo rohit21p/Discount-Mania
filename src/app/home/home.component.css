@@ -8,3 +8,11 @@
     width: 100vw;
     max-width: 100%;
 }
+
+
+@media(max-width: 837px) {
+    .home-container {
+        background: url('home-bg-sm.png') no-repeat center center;
+        background-size: 100%;
+    }
+}
