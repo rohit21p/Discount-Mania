@@ -1,0 +1,36 @@
+.buy-service-container {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    background-color: #2D2D30;
+    color: white;
+    padding: 60px 20px;
+}
+
+
+.btn-mania {
+    background-color: #9400D3;
+    color: white;
+}
+
+p {
+    width: 60vw;
+}
+
+
+@media(max-width:700px) {
+    p {
+        width: 50vw;
+    }
+}
+
+@media(max-width:500px) {
+    .buy-service-container {
+        flex-flow: column;
+        justify-content: space-evenly;
+        height: 400px;
+        padding: 10px;
+    }
+}
+
