@@ -1,0 +1,55 @@
+.row-one {
+    background-color: black;
+    color:white;
+}
+
+.row-two {
+    background-color: black;
+    color:white;
+}
+.row-one p{
+  max-width: 40vw;
+}
+.row-two p{
+    margin:0px;
+}
+.row-one {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 35px;
+}
+
+@media(max-width: 519px) {
+    .row-one{
+        flex-flow: column;
+        align-items: center;
+    }
+    .row-one p{
+        min-width: 70vw;
+    }
+    .about {
+        margin-bottom: 25px;
+    }
+    p {
+        font-size: 80%;
+    }
+}
+
+.contact:before {
+    font-family: FontAwesome;
+    content: "\f10b";
+    padding-right: 5px; 
+    font-size: 120%;
+ }
+
+ .address:before {
+    font-family: FontAwesome;
+    content: "\f0ac";
+    padding-right: 5px; 
+ }
+
+ .email:before {
+    font-family: FontAwesome;
+    content: "\f003";
+    padding-right: 5px; 
+ }
