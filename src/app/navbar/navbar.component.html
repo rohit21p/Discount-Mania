@@ -3,6 +3,47 @@
     <ul>
         <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }">Buy</a></li>
         <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }">Sell</a></li>
-        <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }">Log-in</a></li>
+        <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }" data-toggle="modal" data-target="#myModal">Log-in</a></li>
     </ul>
 </div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="login-header">
+            <button *ngIf="isNewUser" class="btn btn-primary" (click)="toggleUser()">New User</button>
+            <button *ngIf="isRegUser" class="btn btn-primary" (click)="toggleUser()">Registered User</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form *ngIf="isNewUser" class="new-user">
+            <label for="text">Name:</label>
+            <input type="text" class="name">
+            <label for="text">Email:</label>
+            <input type="text" class="email">
+            <label for="text">Password:</label>
+            <input type="password" class="password">
+            <label for="text">Paytm Number:</label>
+            <input type="text" class="paytm-contact">
+          </form>
+          <form *ngIf="isRegUser" class="reg-user">
+            <label for="text">Email:</label>
+            <input type="text" class="email">
+            <label for="text">Password:</label>
+            <input type="password" class="password">
+          </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button *ngIf="isNewUser" class="btn btn-success" (click)="Log-in()" data-dismiss="modal">Sign-up</button>
+            <button *ngIf="isRegUser" class="btn btn-success" (click)="Log-in()" data-dismiss="modal">Sign-in</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>

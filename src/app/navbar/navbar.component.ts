@@ -9,6 +9,8 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
 
+  isNewUser: boolean = true;
+  isRegUser: boolean = false;
   scrolled = false;
 
   constructor() {
@@ -27,6 +29,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   
+  }
+
+  toggleUser() {
+    this.isNewUser = !this.isNewUser;
+    this.isRegUser = !this.isRegUser;
   }
 
 }
