@@ -21,26 +21,26 @@
         <div class="modal-body">
           <form *ngIf="isNewUser" class="new-user">
             <label for="text">Name:</label>
-            <input type="text" class="name">
+            <input type="text" class="name" name="name" [(ngModel)] = "name">
             <label for="text">Email:</label>
-            <input type="text" class="email">
+            <input type="text" class="email" name="email" [(ngModel)] = "email">
             <label for="text">Password:</label>
-            <input type="password" class="password">
+            <input type="password" class="password" name="password" [(ngModel)] = "password">
             <label for="text">Paytm Number:</label>
-            <input type="text" class="paytm-contact">
+            <input type="text" class="paytm-contact" name="paytm" [(ngModel)] = "paytm">
           </form>
           <form *ngIf="isRegUser" class="reg-user">
             <label for="text">Email:</label>
-            <input type="text" class="email">
+            <input type="text" class="email" name="email" [(ngModel)] = "email">
             <label for="text">Password:</label>
-            <input type="password" class="password">
+            <input type="password" class="password" name="password" [(ngModel)] = "password">
           </form>
         </div>
         
         <!-- Modal footer -->
         <div class="modal-footer">
-            <button *ngIf="isNewUser" class="btn btn-success" (click)="Log-in()" data-dismiss="modal">Sign-up</button>
-            <button *ngIf="isRegUser" class="btn btn-success" (click)="Log-in()" data-dismiss="modal">Sign-in</button>
+            <button *ngIf="isNewUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Sign-up</button>
+            <button *ngIf="isRegUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Sign-in</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
         </div>
         
