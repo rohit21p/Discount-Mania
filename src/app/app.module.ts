@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { BuyServiceComponent } from './buy-service/buy-service.component';
 import { SellServiceComponent } from './sell-service/sell-service.component';
 import { FooterComponent } from './footer/footer.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
   { path: '**', component: HomeComponent}
@@ -22,7 +23,8 @@ const routes: Routes = [
     HomeComponent,
     BuyServiceComponent,
     SellServiceComponent,
-    FooterComponent
+    FooterComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
