@@ -14,6 +14,8 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SellComponent } from './sell/sell.component';
 
 const routes: Routes = [
+  { path: 'categories', component: CategoriesComponent},
+  { path: 'sell', component: SellComponent},
   { path: '**', component: HomeComponent}
 ]
 
