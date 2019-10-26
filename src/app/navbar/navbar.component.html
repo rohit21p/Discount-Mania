@@ -3,7 +3,8 @@
     <ul>
         <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }">Buy</a></li>
         <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }">Sell</a></li>
-        <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }" data-toggle="modal" data-target="#myModal">Log-in</a></li>
+        <li *ngIf="!LoggedIn"><a [ngStyle]="{'color': scrolled?'white':'black' }" data-toggle="modal" data-target="#myModal">Log-in</a></li>
+        <li *ngIf="LoggedIn"><a [ngStyle]="{'color': scrolled?'white':'black' }" (click)="logout()">Log Out</a></li>
     </ul>
 </div>
 
