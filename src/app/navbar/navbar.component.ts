@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   email: string;
   password: string;
   paytm: string;
+  LoggedIn: boolean = false;
 
   constructor(private http: HttpClient) {
     window.addEventListener('scroll', () => {
@@ -33,7 +34,18 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+    this.http.get('http://localhost:3000/isLoggedIn', {
+      withCredentials: true
+    }).subscribe((data: any) => {
+        console.log(data);
+        if(data.LoggedIn == true) {
+          this.LoggedIn = true;
+        } else {
+          this.LoggedIn = false;
+        }
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   toggleUser() {
@@ -48,8 +60,13 @@ export class NavbarComponent implements OnInit {
         email: this.email,
         password: this.password,
         paytm: this.paytm
-      })).subscribe((data) => {
+      })).subscribe((data: any) => {
         console.log(data);
+        if(data.LoggedIn == true) {
+          this.LoggedIn = true;
+        } else {
+          this.LoggedIn = false;
+        }
       }, (error) => {
         console.log(error);
       });
@@ -57,12 +74,28 @@ export class NavbarComponent implements OnInit {
       this.http.post('http://localhost:3000/sign-in', JSON.stringify({
         email: this.email,
         password: this.password
-      })).subscribe((data) => {
+      }),{
+      withCredentials: true
+ }).subscribe((data: any) => {
         console.log(data);
+        if(data.LoggedIn == true) {
+          this.LoggedIn = true;
+        } else {
+          this.LoggedIn = false;
+        }
       }, (error) => {
         console.log(error);
       });
     }
+  }
+
+  logout() {
+    this.http.get("http://localhost:3000/logout", {
+      withCredentials: true
+    }).subscribe(data => {
+      this.LoggedIn = data.LoggedIn;
+      console.log(this.LoggedIn)
+    })
   }
 
 }
