@@ -11,6 +11,7 @@ import { BuyServiceComponent } from './buy-service/buy-service.component';
 import { SellServiceComponent } from './sell-service/sell-service.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { SellComponent } from './sell/sell.component';
 
 const routes: Routes = [
   { path: '**', component: HomeComponent}
@@ -24,7 +25,8 @@ const routes: Routes = [
     BuyServiceComponent,
     SellServiceComponent,
     FooterComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    SellComponent
   ],
   imports: [
     BrowserModule,
