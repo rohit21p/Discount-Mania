@@ -17,6 +17,7 @@ import { OffersComponent } from './offers/offers.component';
 const routes: Routes = [
   { path: 'categories', component: CategoriesComponent},
   { path: 'sell', component: SellComponent},
+  { path: ':category/offers', component: OffersComponent},
   { path: '**', component: HomeComponent}
 ]
 
