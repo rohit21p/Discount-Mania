@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent},
   { path: 'sell', component: SellComponent},
   { path: ':category/offers', component: OffersComponent},
+  { path: ':category/:id', component: OfferComponent},
   { path: '**', component: HomeComponent}
 ]
 
