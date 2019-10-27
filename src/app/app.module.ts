@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SellComponent } from './sell/sell.component';
 import { OffersComponent } from './offers/offers.component';
+import { OfferComponent } from './offer/offer.component';
 
 const routes: Routes = [
   { path: 'categories', component: CategoriesComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
     FooterComponent,
     CategoriesComponent,
     SellComponent,
-    OffersComponent
+    OffersComponent,
+    OfferComponent
   ],
   imports: [
     BrowserModule,
