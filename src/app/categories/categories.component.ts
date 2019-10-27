@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
+  categories: string[] = [
+    "Electronics",
+    "Fashion",
+    "Grocery",
+    "Sports",
+    "Mobile Recharge",
+    "DTH Recharge"
+  ]
+
   constructor() { }
 
   ngOnInit() {

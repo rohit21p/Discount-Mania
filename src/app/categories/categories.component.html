@@ -1,1 +1,8 @@
-<p>categories works!</p>
+<div class="categories-container">
+    <div class="category-group">
+        <div *ngFor="let category of categories"class="category">
+            <h5 class="title">{{ category }}</h5>
+            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
