@@ -12,6 +12,7 @@ import { SellServiceComponent } from './sell-service/sell-service.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SellComponent } from './sell/sell.component';
+import { OffersComponent } from './offers/offers.component';
 
 const routes: Routes = [
   { path: 'categories', component: CategoriesComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
     SellServiceComponent,
     FooterComponent,
     CategoriesComponent,
-    SellComponent
+    SellComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,
