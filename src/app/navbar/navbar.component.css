@@ -8,6 +8,7 @@
     position: fixed;
     width: 100vw;
     box-shadow: 1px 3px 10px 1px grey;
+    z-index: 2;
 }
 
 ul {
