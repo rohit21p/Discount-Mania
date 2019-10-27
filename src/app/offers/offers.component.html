@@ -1,1 +1,11 @@
-<p>offers works!</p>
+<div class="offers-container">
+    <div class="offer-group">
+        <div *ngFor="let offer of offers" class="offer">
+            <div class="detail">
+                <h5>{{offer.title}}</h5>
+                <p>{{offer.desc}}</p>
+            </div>
+            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
