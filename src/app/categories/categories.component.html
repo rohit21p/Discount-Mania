@@ -1,8 +1,12 @@
 <div class="categories-container">
     <div class="category-group">
-        <div *ngFor="let category of categories"class="category"  routerLink="/{{ category }}/offers" >
-            <h5 class="title">{{ category }}</h5>
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+        <div *ngFor="let category of categories"class="category">
+            <img src="https://cdn.rswebsols.com/wp-content/uploads/2015/12/shopping-cart.jpg" alt="image">
+            <div class="desc">
+                <h5 class="title">{{ category }}</h5>
+                <button class="btn btn-primary" routerLink="/{{ category }}/offers">Browse</button>
+            </div>
         </div>
     </div>
 </div>
+    
