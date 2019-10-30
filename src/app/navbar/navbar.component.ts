@@ -60,7 +60,9 @@ export class NavbarComponent implements OnInit {
         email: this.email,
         password: this.password,
         paytm: this.paytm
-      })).subscribe((data: any) => {
+      }), {
+        withCredentials: true
+      }).subscribe((data: any) => {
         console.log(data);
         if(data.LoggedIn == true) {
           this.LoggedIn = true;
