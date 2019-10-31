@@ -1,5 +1,5 @@
 <div class="offer-container">
-    <div class="offer" data-simplebar>
+    <div *ngIf="offer" class="offer" data-simplebar>
         <h5>{{ offer.title }}</h5>
         <p>by: {{offer.by}}</p>
         <p align="justify">{{ offer.predesc }}</p>
@@ -8,4 +8,12 @@
         <p>Offer Valid till {{ offer.validity }}</p>
         <button class="btn btn-primary" (click)="buy()">Buy this offer</button>
     </div>
+</div>
+
+<div id="error-loading" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content modal-msg">
+      <h5>{{ msg }}</h5>
+    </div>
+  </div>
 </div>
