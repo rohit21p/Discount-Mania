@@ -12,8 +12,8 @@ export class CategoriesComponent implements OnInit {
     "Fashion",
     "Grocery",
     "Sports",
-    "Mobile Recharge",
-    "DTH Recharge"
+    "Recharge",
+    "Other"
   ]
 
   constructor() { }
