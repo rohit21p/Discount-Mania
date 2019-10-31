@@ -40,6 +40,11 @@ form {
     width: 100%;
 }
 
+.modal-msg {
+    padding: 15px;
+    align-items: center;
+}
+
 @media(max-width:600px) {
     .sell {
         padding: 30px;
