@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-offers',
@@ -9,44 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 export class OffersComponent implements OnInit {
 
   offers = [
-    {
-      title: 'Ofsgv svst bst - 1',
-      desc: 'dvnksrnvskrnvgkssgrvrjjjjjjjjj jjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    },
-    {
-      title: 'Ofsgv svst bst - 2',
-      desc: 'dvnksrnvskrnvgkssgrvrjjjjjjjjj jjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    },
-    {
-      title: 'Ofsgv svst bst - 3',
-      desc: 'dvnksrnvskrnvgkssgrvrjjjjjjjjj jjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    },
-    {
-      title: 'Ofsgv svst bst - 4',
-      desc: 'dvnksrnvskrnvgkssgrvrjjjjjjjjj jjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    },
-    {
-      title: 'Ofsgv svst bst - 5',
-      desc: 'dvnksrnvskr nvgkssgrvrjjjjjjjj jjjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    },
-    {
-      title: 'Ofsgv svst bst - 3',
-      desc: 'dvnksrnvskr nvgkssgrvrjjjjjjjj jjjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    },
-    {
-      title: 'Ofsgv svst bst - 4',
-      desc: 'dvnksrnvskr nvgkssgrvrjjjjjjjj jjjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    },
-    {
-      title: 'Ofsgv svst bst - 5',
-      desc: 'dvnksrnvskr nvgkssgrvrjjjjjjjj jjjjjjjjjjjjjjjjjjsr ggggggggggggggggk mmmmmmmmmmmmv fffffffffffffffn        cdaekmfvjnsfkv fkmnjfvnjdnj',
-    }
   ];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private http: HttpClient) { }
 
   ngOnInit() {
-    // this.route.snapshot.params['category'];
+    this.http.post("http://localhost:3000/posts", JSON.stringify({
+      category: this.route.snapshot.params['category']
+    })).subscribe((data: any) => {
+      console.log(data);
+      this.offers = data.result;
+    });
   }
 
 }
