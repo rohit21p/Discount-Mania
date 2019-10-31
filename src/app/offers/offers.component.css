@@ -25,3 +25,8 @@
     align-items: center;
     padding: 15px;
 }
+
+.modal-msg {
+    padding: 15px;
+    align-items: center;
+}
