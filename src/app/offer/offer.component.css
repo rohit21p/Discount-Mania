@@ -25,6 +25,12 @@
     align-items: center;
 }
 
+
+.modal-msg {
+    padding: 15px;
+    align-items: center;
+}
+
 @media(max-width:1000px) {
     .offer {
         padding: 40px;

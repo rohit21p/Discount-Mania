@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
+declare var $: any;
+
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
@@ -10,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class OfferComponent implements OnInit {
 
   offer: any;
+  msg: any;
 
   constructor(private http: HttpClient,
               private route: ActivatedRoute) { }
@@ -19,7 +22,14 @@ export class OfferComponent implements OnInit {
       _id: this.route.snapshot.params['id']
     })).subscribe((data: any) => {
       this.offer = data.result[0];
-    })
+      if (!data.success) {
+        this.msg = 'Some Error Occurred.';
+        $('#error-loading').modal('show');
+      }
+    }, (error) => {
+      this.msg = 'Can\'t connect to server.';
+      $('#error-loading').modal('show');
+    });
   }
 
   buy() {
