@@ -41,6 +41,11 @@ li a {
     box-shadow: none;
 }
 
+.modal-msg {
+    padding: 15px;
+    align-items: center;
+}
+
 @media(max-width: 837px) {
     .app-container {
         flex-flow: column;

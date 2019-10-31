@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   password: string;
   paytm: string;
   LoggedIn: boolean = false;
+  msg: string = '';
 
   constructor(private http: HttpClient) {
     window.addEventListener('scroll', () => {
@@ -66,10 +67,16 @@ export class NavbarComponent implements OnInit {
         console.log(data);
         if(data.LoggedIn == true) {
           this.LoggedIn = true;
+          this.msg = 'Successfuly Logged-In';
+          $('#status').modal('show');
         } else {
+          this.msg = 'Error while sign-up';
+          $('#status').modal('show');
           this.LoggedIn = false;
         }
       }, (error) => {
+        this.msg = 'Can\'t Connect to Server';
+        $('#status').modal('show');
         console.log(error);
       });
     } else {
@@ -82,10 +89,16 @@ export class NavbarComponent implements OnInit {
         console.log(data);
         if(data.LoggedIn == true) {
           this.LoggedIn = true;
+          this.msg = 'Successfuly Logged In';
+          $('#status').modal('show');
         } else {
+          this.msg = 'Error while sig-in';
+          $('#status').modal('show');
           this.LoggedIn = false;
         }
       }, (error) => {
+        this.msg = 'Can\'t Connect to Server';
+        $('#status').modal('show');
         console.log(error);
       });
     }
@@ -97,7 +110,17 @@ export class NavbarComponent implements OnInit {
     }).subscribe((data: any) => {
       this.LoggedIn = data.LoggedIn;
       console.log(this.LoggedIn)
-    })
+      if  (this.LoggedIn) {
+        this.msg = 'Error while Logging Out';
+      } else {
+        this.msg = 'Successfuly Logged Out';
+      }
+      $('#status').modal('show');
+    }, (error) => {
+        this.msg = 'Can\'t Connect to Server';
+        $('#status').modal('show');
+        console.log(error);
+    });
   }
 
 }
