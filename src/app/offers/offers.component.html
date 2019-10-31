@@ -1,6 +1,6 @@
 <div class="offers-container">
     <div class="offer-group" data-simplebar>
-        <div *ngFor="let offer of offers; let i = index" class="offer" routerLink="../{{i}}">
+        <div *ngFor="let offer of offers;" class="offer" routerLink="../{{offer._id}}">
             <div class="detail">
                 <h5>{{offer.title}}</h5>
                 <p>{{offer.predesc}}</p>
