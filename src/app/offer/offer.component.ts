@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-offer',
@@ -8,19 +9,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OfferComponent implements OnInit {
 
-  offer = {
-    by: 'Rohit Panjwani',
-    title: 'Placeholder Offer',
-    desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati at facere, dolor dolorem eaque error 
-    natus officia, aliquam molestiae voluptate amet aperiam sint aut consequuntur, laboriosam voluptates aliquid ut vero.`,
-    worth: 200,
-    valid: '20/09/2019',
-    price: 2.65
-  };
+  offer: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.http.post('http://localhost:3000/post', JSON.stringify({
+      _id: this.route.snapshot.params['id']
+    })).subscribe((data: any) => {
+      this.offer = data.result[0];
+    })
   }
 
   buy() {

@@ -2,10 +2,10 @@
     <div class="offer" data-simplebar>
         <h5>{{ offer.title }}</h5>
         <p>by: {{offer.by}}</p>
-        <p align="justify">{{ offer.desc }}</p>
+        <p align="justify">{{ offer.predesc }}</p>
         <p>You Pay {{ offer.price }} INR</p>
         <p>You save {{ offer.worth - offer.price }} INR</p>
-        <p>Offer Valid till {{ offer.valid }}</p>
+        <p>Offer Valid till {{ offer.validity }}</p>
         <button class="btn btn-primary" (click)="buy()">Buy this offer</button>
     </div>
 </div>
