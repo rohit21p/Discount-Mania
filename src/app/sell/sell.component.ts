@@ -22,4 +22,10 @@ export class SellComponent implements OnInit {
   ngOnInit() {
   }
 
+  create() {
+    this.http.post("http://localhost:3000/create", JSON.stringify(this.form)).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
 }
