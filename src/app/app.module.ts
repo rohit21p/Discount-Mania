@@ -18,6 +18,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'categories', component: CategoriesComponent},
+  { path: 'profile', component: ProfileComponent},
   { path: 'sell', component: SellComponent},
   { path: ':category/offers', component: OffersComponent},
   { path: ':category/:id', component: OfferComponent},
