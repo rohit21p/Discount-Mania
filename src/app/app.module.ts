@@ -14,6 +14,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { SellComponent } from './sell/sell.component';
 import { OffersComponent } from './offers/offers.component';
 import { OfferComponent } from './offer/offer.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'categories', component: CategoriesComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
     CategoriesComponent,
     SellComponent,
     OffersComponent,
-    OfferComponent
+    OfferComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
