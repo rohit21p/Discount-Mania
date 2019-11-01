@@ -1,1 +1,47 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <div class="profile">
+        <div class="about-you">
+            <p class="name">Name:</p>
+            <p class="email">Email:</p>
+            <p class="phone-number">Contact Number:</p>
+            <p class="offer-bought">Total Offer bought:</p>
+            <p class="offer-posted">Total offer posted:</p>
+            <p class="offer-sold">Total offer sold:</p>
+            <p class="balance">Your balance:</p>
+            <button class="btn btn-primary" style="align-self: center;margin:15px;">Get Money to Paytm</button>
+        </div>
+        <div class="offers" data-simplebar>
+            <div class="bought">
+                <p>Offers you bought:</p>
+                <div *ngFor="let offer of b_offers;" class="offer" (click)="offer.show=!offer.show">
+                    <div class="detail">
+                        <h5>{{offer.title}}</h5>
+                        <p>{{offer.predesc}}</p>
+                        <div *ngIf="offer.show">
+                            <p>You Pay {{ offer.price }} INR</p>
+                            <p>You save {{ offer.worth - offer.price }} INR</p>
+                            <p>Offer Valid till {{ offer.validity }}</p>
+                        </div>
+                    </div>
+                    <i *ngIf="!show_bought" class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                    <i *ngIf="show_bought" class="fa fa-chevron-circle-up" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="posted">
+                <p>Offers you posted:</p>
+                <div *ngFor="let offer of p_offers;" class="offer" (click)="offer.show=!offer.show">
+                    <div class="detail">
+                        <h5>{{offer.title}}</h5>
+                        <p>{{offer.predesc}}</p>
+                        <div *ngIf="offer.show">
+                            <p>You Pay {{ offer.price }} INR</p>
+                            <p>You save {{ offer.worth - offer.price }} INR</p>
+                            <p>Offer Valid till {{ offer.validity }}</p>
+                         </div>
+                    </div>
+                    <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

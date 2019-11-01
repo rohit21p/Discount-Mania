@@ -7,6 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  b_offers = [
+    {
+      _id: 1,
+      title: 'Rohit',
+      predesc: 'dacadc davfav dacqav qecdq ec we cwvswf vswvv'
+    },
+    {
+      _id: 1,
+      title: 'Rohit',
+      predesc: 'dacadc davfav dacqav qecdq ec we cwvswf vswvv'
+    },
+    {
+      _id: 1,
+      title: 'Rohit',
+      predesc: 'dacadc davfav dacqav qecdq ec we cwvswf vswvv'
+    }
+  ];
+
+  p_offers = [
+    {
+      _id: 1,
+      title: 'Rohit',
+      predesc: 'dacadc davfav dacqav qecdq ec we cwvswf vswvv'
+    },
+    {
+      _id: 1,
+      title: 'Rohit',
+      predesc: 'dacadc davfav dacqav qecdq ec we cwvswf vswvv'
+    },
+    {
+      _id: 1,
+      title: 'Rohit',
+      predesc: 'dacadc davfav dacqav qecdq ec we cwvswf vswvv'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
