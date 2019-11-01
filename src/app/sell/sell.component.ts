@@ -13,9 +13,11 @@ export class SellComponent implements OnInit {
   form = {
     title: '',
     category: '',
+    cap: '',
     predesc: '',
     comdesc: '',
     price: '',
+    worth: '',
     validity: ''
   };
 
