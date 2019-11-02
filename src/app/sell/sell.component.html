@@ -48,10 +48,12 @@
     </div>
 </div>
 
-<div id="create-status" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div id="create-status" class="modal fade bd-example-modal-sm" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content modal-msg">
         <h5>{{ msg }}</h5>
+        <p>{{ submsg }}</p>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#create-status">Close</button>
       </div>
     </div>
 </div>
