@@ -12,13 +12,6 @@
 <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="login-header">
-            <button *ngIf="isNewUser" class="btn btn-primary" (click)="toggleUser()">New User</button>
-            <button *ngIf="isRegUser" class="btn btn-primary" (click)="toggleUser()">Registered User</button>
-        </div>
-        
         <!-- Modal body -->
         <div class="modal-body">
           <form *ngIf="isNewUser" class="new-user">
@@ -37,13 +30,17 @@
             <label for="text">Password:</label>
             <input type="password" class="password" name="password" [(ngModel)] = "password">
           </form>
+          <div class="action">
+            <button *ngIf="isNewUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Register</button>
+            <button *ngIf="isRegUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Sign-in</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
         </div>
         
         <!-- Modal footer -->
-        <div class="modal-footer">
-            <button *ngIf="isNewUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Sign-up</button>
-            <button *ngIf="isRegUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Sign-in</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <div class="modal-footer" style="justify-content: center;">
+            <p *ngIf="isRegUser">Do not have a account? <a (click)="toggleUser()">Click Here!</a></p>
+            <p *ngIf="isNewUser">Already Have an account? <a (click)="toggleUser()">Click Here!</a></p>
         </div>
         
       </div>

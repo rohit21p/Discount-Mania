@@ -10,8 +10,8 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
 
-  isNewUser: boolean = true;
-  isRegUser: boolean = false;
+  isNewUser: boolean = false;
+  isRegUser: boolean = true;
   scrolled = false;
   name: string;
   email: string;

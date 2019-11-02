@@ -147,4 +147,19 @@ label {
     }
 }
 
-    
+p {
+    margin: 1%;
+}
+
+p a {
+    color: blue;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    margin: 2%;
+}
