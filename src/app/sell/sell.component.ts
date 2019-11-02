@@ -36,7 +36,9 @@ export class SellComponent implements OnInit {
       withCredentials: true
     }).subscribe((is: any) => {
       if (is.LoggedIn) {
-        this.http.post("http://localhost:3000/create", JSON.stringify(this.form)).subscribe((data: any) => {
+        this.http.post("http://localhost:3000/create", JSON.stringify(this.form), {
+          withCredentials: true
+        }).subscribe((data: any) => {
           console.log(data);
           if (data.success) {
             this.msg = 'A post is succesfuly created.';
