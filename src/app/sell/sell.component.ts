@@ -22,6 +22,7 @@ export class SellComponent implements OnInit {
   };
 
   msg: string;
+  submsg: string;
 
   constructor(private http: HttpClient) { }
 
@@ -29,16 +30,32 @@ export class SellComponent implements OnInit {
   }
 
   create() {
-    this.http.post("http://localhost:3000/create", JSON.stringify(this.form)).subscribe((data: any) => {
-      console.log(data);
-      if (data.success) {
-        this.msg = 'A post is succesfuly created.';
-      } else {
-        this.msg = 'Error Occured.';
-      }
-      $('#create-status').modal('show');
+    this.http.get('http://localhost:3000/isLoggedIn', {
+      withCredentials: true
+    }).subscribe((is: any) => {
+      if (is.LoggedIn) {
+        this.http.post("http://localhost:3000/create", JSON.stringify(this.form)).subscribe((data: any) => {
+          console.log(data);
+          if (data.success) {
+            this.msg = 'A post is succesfuly created.';
+            this.submsg = 'Your balance will increase if anyone buys this offer';
+          } else {
+            this.msg = 'Error Occured.';
+          }
+          $('#create-status').modal('show');
+        }, (error) => {
+          this.msg = 'Can\'t connect to server.';
+          this.submsg = 'Contact us at dis@mania.com if needed';
+          $('#create-status').modal('show');
+        });
+        } else {
+          this.msg = 'Not Logged In';
+          this.submsg = 'Log-in first';
+          $('#create-status').modal('show');
+        }
     }, (error) => {
       this.msg = 'Can\'t connect to server.';
+      this.submsg = 'Contact us at dis@mania.com if needed';
       $('#create-status').modal('show');
     });
   }
