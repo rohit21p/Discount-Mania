@@ -7,15 +7,29 @@
     align-items: center;
 }
 
-.offer {
-    width: 50vw;
-    max-height: 60vh;
+.offer-group {
+    height: 70%;
+    width: 50%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 2px 10px 2px grey;
-    padding: 50px;
+}
+
+.offer {
+    height: 80%;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 5%;
+    margin-right: 0px;
+}
+
+.action {
+    width: 40%;
+    display: flex;
+    margin: 0% 5%;
+    align-items: center;
+    height: 20%;
+    border-top: 2px solid grey;
 }
 
 .modal-body {
@@ -31,29 +45,19 @@
     align-items: center;
 }
 
-@media(max-width:1000px) {
-    .offer {
-        padding: 40px;
+@media(max-width:720px) {
+    p {
+        font-size: 80%;
+        margin-bottom: 8px;
     }
-}
-
-@media(max-width:832px) {
-    .offer {
-        /* padding: 20px; */
-        height: 70vh;
+    .btn {
+        font-size: 80%;
     }
-}
-
-@media(max-width:600px) {
-    .offer {
-        padding: 30px;
-        width: 60vw;
+    .action {
+        width: 50%;
     }
-}
-
-
-@media(max-width:400px) {
-    .offer {
-        width: 70vw;
+    .offer-group {
+        width: 60%;
+        height: 60%;
     }
 }

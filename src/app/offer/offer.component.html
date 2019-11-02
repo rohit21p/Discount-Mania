@@ -1,13 +1,19 @@
 <div class="offer-container">
+  <div class="offer-group">
     <div *ngIf="offer" class="offer" data-simplebar>
         <h5>{{ offer.title }}</h5>
         <p>by: {{offer.by}}</p>
         <p align="justify">{{ offer.predesc }}</p>
         <p>You Pay {{ offer.price }} INR</p>
-        <p>You save {{ offer.worth - offer.price }} INR</p>
+        <p>You save {{ offer.worth }} INR</p>
         <p>Offer Valid till {{ offer.validity }}</p>
+        <p>Who can avail this offer: {{ offer.prereq }}</p>
+        <p>Maximum number of people who can use this offer : {{ offer.cap }}</p>
+    </div>
+    <div class="action">
         <button class="btn btn-primary" (click)="buy()">Buy this offer</button>
     </div>
+  </div>
 </div>
 
 <div id="error-loading" class="modal fade bd-example-modal-sm" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
