@@ -65,14 +65,19 @@ export class NavbarComponent implements OnInit {
         withCredentials: true
       }).subscribe((data: any) => {
         console.log(data);
-        if(data.LoggedIn == true) {
-          this.LoggedIn = true;
-          this.msg = 'Successfuly Logged-In';
+        if(data.err) {
+          this.msg = 'Same email or mobile number is already registered';
           $('#status').modal('show');
         } else {
-          this.msg = 'Error while sign-up';
-          $('#status').modal('show');
-          this.LoggedIn = false;
+          if(data.LoggedIn == true) {
+            this.LoggedIn = true;
+            this.msg = 'Successfuly Logged-In';
+            $('#status').modal('show');
+          } else {
+            this.msg = 'Error while sign-up';
+            $('#status').modal('show');
+            this.LoggedIn = false;
+          }
         }
       }, (error) => {
         this.msg = 'Can\'t Connect to Server';
