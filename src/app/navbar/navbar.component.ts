@@ -97,7 +97,7 @@ export class NavbarComponent implements OnInit {
           this.msg = 'Successfuly Logged In';
           $('#status').modal('show');
         } else {
-          this.msg = 'Error while sig-in';
+          this.msg = 'Email or password is incorrect';
           $('#status').modal('show');
           this.LoggedIn = false;
         }
