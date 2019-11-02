@@ -18,7 +18,9 @@ export class SellComponent implements OnInit {
     comdesc: '',
     price: '',
     worth: '',
-    validity: ''
+    validity: '',
+    prereq: '',
+    by: ''
   };
 
   msg: string;

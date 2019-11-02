@@ -1,50 +1,56 @@
 <div class="sell-container">
-    <div class="sell" data-simplebar>
-        <form>
-            <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control" id="title" placeholder="Enter title of your post" name ="title"  [(ngModel)]="form.title">
-              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-            </div>
-            <div class="form-group">
-                <label for="category">Category</label>
-                <select class="form-control form-control" name ="category" [(ngModel)]="form.category" value="Which category it belongs to">
-                    <option>Electronics</option>
-                    <option>Grocery</option>
-                    <option>Sports</option>
-                    <option>Fashion</option>
-                    <option>Recharge</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-              <label for="cap">People Cap</label>
-              <input type="text" class="form-control" id="cap" placeholder="How many people can use this offer" name ="cap" [(ngModel)]="form.cap">
-            </div>
-            <div class="form-group full-size">
-              <label for="predesc">Description</label>
-              <input type="text" class="form-control" id="predesc" placeholder="Describe why should anyone buy your offer" name ="predesc" [(ngModel)]="form.predesc">
-            </div>
-            <div class="form-group full-size">
-                <label for="comdesc">How to avail this offer</label>
-                <input type="text" class="form-control" id="comdesc" placeholder="Describe how to use this offer" name ="comdesc" [(ngModel)]="form.comdesc">
-            </div>
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="text" class="form-control" id="price" placeholder="Price you will sell it for" name ="price" [(ngModel)]="form.price">
-            </div>
-            <div class="form-group">
-                <label for="worth">Worth</label>
-                <input type="text" class="form-control" id="worth" placeholder="How much does you save using this offer" name ="worth" [(ngModel)]="form.worth">
-            </div>
-            <div class="form-group">
-              <label for="validity">Valid till</label>
-              <input type="date" class="form-control" id="validity" placeholder="Date" name ="validity" [(ngModel)]="form.validity">
-          </div>
-            <div class="form-group">
-                <button class="btn btn-primary" (click)="create()">Create a post</button>
-            </div>
-          </form>
+    <div class="sell-group">
+        <div class="sell" data-simplebar>
+            <form>
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Enter title of your post" name ="title"  [(ngModel)]="form.title">
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="form-control form-control" name ="category" [(ngModel)]="form.category" value="Which category it belongs to">
+                        <option>Electronics</option>
+                        <option>Grocery</option>
+                        <option>Sports</option>
+                        <option>Fashion</option>
+                        <option>Recharge</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label for="cap">People Cap</label>
+                  <input type="text" class="form-control" id="cap" placeholder="How many people can use this offer" name ="cap" [(ngModel)]="form.cap">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" id="price" placeholder="Price you will sell it for" name ="price" [(ngModel)]="form.price">
+                </div>
+                <div class="form-group full-size">
+                  <label for="predesc">Description</label>
+                  <input type="text" class="form-control" id="predesc" placeholder="Describe why should anyone buy your offer" name ="predesc" [(ngModel)]="form.predesc">
+                </div>
+                <div class="form-group full-size">
+                    <label for="comdesc">How to avail this offer</label>
+                    <input type="text" class="form-control" id="comdesc" placeholder="Describe how to use this offer" name ="comdesc" [(ngModel)]="form.comdesc">
+                </div>
+                <div class="form-group">
+                    <label for="worth">Worth</label>
+                    <input type="text" class="form-control" id="worth" placeholder="How much does one save using this offer" name ="worth" [(ngModel)]="form.worth">
+                </div>
+                <div class="form-group">
+                  <label for="validity">Valid till</label>
+                  <input type="date" class="form-control" id="validity" placeholder="Date" name ="validity" [(ngModel)]="form.validity">
+                </div>
+                <div class="form-group full-size">
+                    <label for="prereq">Prerequisite:</label>
+                    <input type="text" class="form-control" id="validity" placeholder="Who all can avail this offer" name ="prereq" [(ngModel)]="form.prereq">
+                </div>
+              </form>
+        </div>
+        <div class="form-group action">
+            <button class="btn btn-primary" (click)="create()">Create a post</button>
+        </div>
     </div>
 </div>
 
