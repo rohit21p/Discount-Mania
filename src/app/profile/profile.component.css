@@ -49,3 +49,13 @@
     align-items: center;
     padding: 15px;
 }
+
+.heavy {
+    font-weight: 500;
+    white-space:nowrap;
+}
+
+.modal-msg {
+    padding: 15px;
+    align-items: center;
+}
