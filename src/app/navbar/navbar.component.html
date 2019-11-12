@@ -1,5 +1,5 @@
 <div class="app-container" id="nav" [ngClass] = "{ 'hidden': !scrolled }" [ngStyle]="{'color': scrolled?'white':'black' }">
-    <div *ngIf="scrolled" class="brand" [ngStyle]="{'color': scrolled?'white':'transparent' }">Discount Mania</div>
+    <div *ngIf="scrolled" class="brand" [ngStyle]="{'color': scrolled?'white':'transparent', 'cursor': 'pointer' }" [routerLink]="'/'">Discount Mania</div>
     <ul>
       <li *ngIf="LoggedIn"><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }" [routerLink]="'/profile'"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
       <li><a href="#" [ngStyle]="{'color': scrolled?'white':'black' }" [routerLink]="'/categories'">Buy</a></li>
