@@ -73,7 +73,23 @@ export class NavbarComponent implements OnInit {
             this.LoggedIn = true;
             this.msg = 'Successfuly Logged-In';
             $('#status').modal('show');
-          } else {
+          } else if (data.LoggedIn === 'small username') {
+            this.msg = 'Username should be atleast 4 characters Long';
+            $('#status').modal('show');
+            this.LoggedIn = false;
+          } else if (data.LoggedIn === 'small password') {
+            this.msg = 'Password should be atleast 8 characters Long';
+            $('#status').modal('show');
+            this.LoggedIn = false;
+          } else if (data.LoggedIn === 'invalid mobile number') {
+            this.msg = 'Mobile number should have 10 digits whithout country code';
+            $('#status').modal('show');
+            this.LoggedIn = false;
+          } else if (data.LoggedIn === 'inavlid email') {
+            this.msg = 'Invalid email';
+            $('#status').modal('show');
+            this.LoggedIn = false;
+          } else{
             this.msg = 'Error while sign-up';
             $('#status').modal('show');
             this.LoggedIn = false;
@@ -92,9 +108,12 @@ export class NavbarComponent implements OnInit {
       withCredentials: true
  }).subscribe((data: any) => {
         console.log(data);
-        if(data.LoggedIn == true) {
+        if (data.LoggedIn === true) {
           this.LoggedIn = true;
           this.msg = 'Successfuly Logged In';
+          $('#status').modal('show');
+        } else if(data.LoggedIn === 'incomplete form') {
+          this.msg = 'Please fill all details';
           $('#status').modal('show');
         } else {
           this.msg = 'Email or password is incorrect';
