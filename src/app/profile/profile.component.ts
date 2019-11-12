@@ -49,9 +49,23 @@ export class ProfileComponent implements OnInit {
   }
 
   reqmoney() {
-    this.msg = 'Your Request has been generated.';
-    this.submsg = 'You will recieve money in 2-3 days.'
-    $('#profilemodal').modal('show');
+    this.http.get('http://localhost:3000/releasefunds', {
+      withCredentials: true
+    }).subscribe((data: any) => {
+      if (data.status === 'Request generated') {
+        this.msg = 'Your Request has been generated.';
+        this.submsg = 'You will recieve money in 2-3 working days.';
+        $('#profilemodal').modal('show');
+      } else if (data.status === 'Login first') {
+        this.msg = 'Not Logged In';
+        this.submsg = 'Log-in again.';
+        $('#profilemodal').modal('show');
+      }
+    }, (err) => {
+      this.msg = 'Can\'t connect to server.';
+      this.submsg = 'Contact us at dis@mania.com if needed';
+      $('#profilemodal').modal('show');
+    });
   }
 
 }
