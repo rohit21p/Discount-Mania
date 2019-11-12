@@ -40,9 +40,12 @@ export class SellComponent implements OnInit {
           withCredentials: true
         }).subscribe((data: any) => {
           console.log(data);
-          if (data.success) {
+          if (data.success === true) {
             this.msg = 'A post is succesfuly created.';
             this.submsg = 'Your balance will increase if anyone buys this offer';
+          } else if (data.success === 'incomplete form') {
+            this.msg = 'Incomplete form.';
+            this.submsg = 'Fill each field of the form.';
           } else {
             this.msg = 'Error Occured.';
           }
