@@ -20,7 +20,7 @@ export class OffersComponent implements OnInit {
               private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.post("http://localhost:3000/posts", JSON.stringify({
+    this.http.post("http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/posts", JSON.stringify({
       category: this.route.snapshot.params['category']
     })).subscribe((data: any) => {
       console.log(data);

@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/isLoggedIn', {
+    this.http.get('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/isLoggedIn', {
       withCredentials: true
     }).subscribe((data: any) => {
         console.log(data);
@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
 
   log_in() {
     if(this.isNewUser) {
-      this.http.post('http://localhost:3000/sign-up', JSON.stringify({
+      this.http.post('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/sign-up', JSON.stringify({
         name: this.name,
         email: this.email,
         password: this.password,
@@ -109,7 +109,7 @@ export class NavbarComponent implements OnInit {
         console.log(error);
       });
     } else {
-      this.http.post('http://localhost:3000/sign-in', JSON.stringify({
+      this.http.post('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/sign-in', JSON.stringify({
         email: this.email,
         password: this.password
       }),{
@@ -137,7 +137,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.get("http://localhost:3000/logout", {
+    this.http.get("http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/logout", {
       withCredentials: true
     }).subscribe((data: any) => {
       this.LoggedIn = data.LoggedIn;
@@ -157,7 +157,7 @@ export class NavbarComponent implements OnInit {
 
   requestpass() {
     this.forgetpass = 2;
-    this.http.post('http://localhost:3000/reset', JSON.stringify({
+    this.http.post('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/reset', JSON.stringify({
       email: this.email
     }), {
       withCredentials: true
@@ -170,7 +170,7 @@ export class NavbarComponent implements OnInit {
   }
 
   newp() {
-    this.http.post('http://localhost:3000/newpass', JSON.stringify({
+    this.http.post('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/newpass', JSON.stringify({
       otp: this.otp,
       password: this.password
     }),{

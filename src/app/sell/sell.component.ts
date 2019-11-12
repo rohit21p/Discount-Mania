@@ -32,11 +32,11 @@ export class SellComponent implements OnInit {
   }
 
   create() {
-    this.http.get('http://localhost:3000/isLoggedIn', {
+    this.http.get('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/isLoggedIn', {
       withCredentials: true
     }).subscribe((is: any) => {
       if (is.LoggedIn) {
-        this.http.post("http://localhost:3000/create", JSON.stringify(this.form), {
+        this.http.post("http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/create", JSON.stringify(this.form), {
           withCredentials: true
         }).subscribe((data: any) => {
           console.log(data);

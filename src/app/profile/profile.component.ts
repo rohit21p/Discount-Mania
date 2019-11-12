@@ -17,11 +17,11 @@ export class ProfileComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/isLoggedIn', {
+    this.http.get('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/isLoggedIn', {
       withCredentials: true
     }).subscribe((is: any) => {
       if (is.LoggedIn) {
-        this.http.post("http://localhost:3000/profile", JSON.stringify({
+        this.http.post("http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/profile", JSON.stringify({
         }), {
           withCredentials: true
         }).subscribe((data: any) => {
@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   reqmoney() {
-    this.http.get('http://localhost:3000/releasefunds', {
+    this.http.get('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/releasefunds', {
       withCredentials: true
     }).subscribe((data: any) => {
       if (data.status === 'Request generated') {

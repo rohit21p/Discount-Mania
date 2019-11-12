@@ -19,7 +19,7 @@ export class OfferComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.http.post('http://localhost:3000/post', JSON.stringify({
+    this.http.post('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/post', JSON.stringify({
       _id: this.route.snapshot.params['id']
     })).subscribe((data: any) => {
       this.offer = data.result[0];
@@ -36,18 +36,18 @@ export class OfferComponent implements OnInit {
   }
 
   buy() {
-    this.http.get('http://localhost:3000/isLoggedIn', {
+    this.http.get('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/isLoggedIn', {
       withCredentials: true
     }).subscribe((is: any) => {
       if (is.LoggedIn) {
-        this.http.post('http://localhost:3000/setup', JSON.stringify({
+        this.http.post('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/setup', JSON.stringify({
           amount: this.offer.price,
           _id : this.offer._id
         }), {
           withCredentials: true
         }).subscribe(() => {
-          window.open('http://localhost:3000/paytm', '_blank');
-          this.http.post('http://localhost:3000/payment-status/' + this.offer._id, JSON.stringify({
+          window.open('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/paytm', '_blank');
+          this.http.post('http://ec2-13-233-98-246.ap-south-1.compute.amazonaws.com:4000/payment-status/' + this.offer._id, JSON.stringify({
           }), {
             withCredentials: true
           }).subscribe((data: any) => {
