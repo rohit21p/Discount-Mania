@@ -27,6 +27,10 @@ export class ProfileComponent implements OnInit {
         }).subscribe((data: any) => {
           console.log(data);
           this.profile = data;
+          this.profile.pposts.forEach(element => {
+            this.profile.sold = (this.profile.sold || 0) + element.sold;
+            this.profile.balance = (this.profile.balance || 0) + element.price * element.sold;
+          });
         }, (error) => {
           this.msg = 'Can\'t connect to server.';
           this.submsg = 'Contact us at dis@mania.com if needed'

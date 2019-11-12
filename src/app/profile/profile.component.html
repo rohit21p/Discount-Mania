@@ -6,35 +6,37 @@
             <p class="phone-number">Contact Number: <span class="heavy">{{ "+91 "+profile.paytm }}</span></p>
             <p class="offer-bought">Total Offer bought: <span class="heavy">{{ profile.bposts.length }}</span></p>
             <p class="offer-posted">Total offer posted: <span class="heavy">{{ profile.pposts.length }}</span></p>
-            <p class="balance">Your balance: <span class="heavy">{{ profile.balance || "NA" }}</span></p>
+            <p class="offer-posted">Total offer sold: <span class="heavy">{{ profile.sold || 0 }}</span></p>
+            <p class="balance">Your balance: <span class="heavy">{{ profile.balance || '0 INR'}}</span></p>
             <button class="btn btn-primary" style="align-self: center;margin:15px;" (click)="reqmoney()">Get Money to Paytm</button>
         </div>
         <div class="offers" data-simplebar>
-            <div class="bought">
+            <div *ngIf="profile.bposts.length" class="bought">
                 <p>Offers you bought:</p>
                 <div *ngFor="let offer of profile.bposts;" class="offer" (click)="offer.show=!offer.show">
                     <div class="detail">
                         <h5>{{offer.title}} <small> ({{offer.category}})</small></h5>
                         <p>{{offer.predesc}}</p>
                         <div *ngIf="offer.show">
-                            <p>You pay: {{ offer.price }} INR</p>
-                            <p>You save: {{ offer.worth || "-" }} INR</p>
+                            <p>You paid: {{ offer.price }} INR</p>
+                            <p>You saved: {{ offer.worth || "-" }} INR</p>
                             <p>Offer Valid till: {{ offer.validity }}</p>
                             <p>{{ offer.comdesc }}</p>
                             <p>How man person can use this offer: {{offer.cap}}</p>
                             <p>Who can avail the offer: {{ offer.prereq }}</p>
+                            <p>For help: Contact us at dis@mania.com if needed</p>
                         </div>
                     </div>
                     <i *ngIf="!offer.show" class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                     <i *ngIf="offer.show" class="fa fa-chevron-circle-up" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="posted">
+            <div *ngIf="profile.pposts.length" class="posted">
                 <p>Offers you posted:</p>
                 <div *ngFor="let offer of profile.pposts;" class="offer" (click)="offer.show=!offer.show">
                     <div class="detail">
-                        <h5>{{offer.title}} <small> ({{offer.category}})</small></h5>
-                        <p>{{offer.predesc}}</p>
+                        <h5>{{offer.title}}</h5>
+                        <p style="margin-bottom:8px">{{offer.predesc}}</p>
                         <div *ngIf="offer.show">
                             <p>You pay: {{ offer.price }} INR</p>
                             <p>You save: {{ offer.worth || "-" }} INR</p>
@@ -43,6 +45,7 @@
                             <p>How man person can use this offer: {{offer.cap}}</p>
                             <p>Who can avail the offer: {{ offer.prereq }}</p>
                          </div>
+                         <p style="margin-bottom:8px"> (Category: {{offer.category}}, sold: {{offer.sold}} times)</p>
                     </div>
                     <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
                 </div>
