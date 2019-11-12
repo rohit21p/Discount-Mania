@@ -4,11 +4,12 @@
         <h5>{{ offer.title }}</h5>
         <p>by: {{offer.by}}</p>
         <p align="justify">{{ offer.predesc }}</p>
-        <p>You Pay {{ offer.price }} INR</p>
-        <p>You save {{ offer.worth }} INR</p>
-        <p>Offer Valid till {{ offer.validity }}</p>
+        <p>You have to pay {{ offer.price }} INR</p>
+        <p>You will save: {{ offer.worth }} INR</p>
+        <p>Offer Valid till: {{ offer.validity }}</p>
         <p>Who can avail this offer: {{ offer.prereq }}</p>
-        <p>Maximum number of people who can use this offer : {{ offer.cap }}</p>
+        <p>Maximum number of people who can use this offer: {{ offer.cap }}</p>
+        <p style="margin-bottom:8px;">Total Sold: {{ offer.sold }}</p>
     </div>
     <div class="action">
         <button class="btn btn-primary" (click)="buy()">Buy this offer</button>
