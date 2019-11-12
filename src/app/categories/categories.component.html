@@ -1,7 +1,7 @@
 <div class="categories-container">
     <div class="cover" data-simplebar>
         <div class="category-group">
-            <div *ngFor="let category of categories"class="category" routerLink="/{{ category }}/offers">
+            <div *ngFor="let category of categories"class="category" routerLink="/{{ category.name }}/offers">
                 <img src="{{ category.src }}" alt="image">
                 <h5 class="title">{{ category.name }}</h5>
             </div>
