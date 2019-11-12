@@ -24,14 +24,14 @@ li {
 li a {
     text-decoration: none;
     color: white;
-    font-family: 'Good Times';
-    font-size: 16px;
+    font-family: 'Good Times', 'Ubuntu', sans-serif;
+    font-size: 20px;
 }
 
 .brand {
     color: White;
-    font-family: 'Good Times';
-    font-size: 24px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 30px;
     padding: 10px;
 }
 
