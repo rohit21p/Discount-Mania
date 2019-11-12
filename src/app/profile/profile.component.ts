@@ -56,6 +56,10 @@ export class ProfileComponent implements OnInit {
         this.msg = 'Your Request has been generated.';
         this.submsg = 'You will recieve money in 2-3 working days.';
         $('#profilemodal').modal('show');
+      } else if (data.status === 'err') {
+        this.msg = 'Your Request is already pending';
+        this.submsg = 'Contact us at dis@mania.com if needed';
+        $('#profilemodal').modal('show');
       } else if (data.status === 'Login first') {
         this.msg = 'Not Logged In';
         this.submsg = 'Log-in again.';
