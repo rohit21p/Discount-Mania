@@ -1,8 +1,10 @@
 <div class="categories-container">
-    <div class="category-group">
-        <div *ngFor="let category of categories"class="category" routerLink="/{{ category }}/offers">
-            <img src="https://cdn.rswebsols.com/wp-content/uploads/2015/12/shopping-cart.jpg" alt="image">
-            <h5 class="title">{{ category }}</h5>
+    <div class="cover" data-simplebar>
+        <div class="category-group">
+            <div *ngFor="let category of categories"class="category" routerLink="/{{ category }}/offers">
+                <img src="https://cdn.rswebsols.com/wp-content/uploads/2015/12/shopping-cart.jpg" alt="image">
+                <h5 class="title">{{ category }}</h5>
+            </div>
         </div>
     </div>
 </div>

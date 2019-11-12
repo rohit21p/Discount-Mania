@@ -3,6 +3,13 @@
     background:  url('bg.jpg') no-repeat center center; 
     background-size: cover; 
     display: flex;
+    padding: 10% 5% 5% 5%; 
+}
+
+.cover {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 .category-group {
@@ -10,7 +17,6 @@
     flex-flow: wrap;
     align-items: center;
     justify-content: space-evenly;
-    margin: 10vh 5vh;
 }
 
 .category { 
