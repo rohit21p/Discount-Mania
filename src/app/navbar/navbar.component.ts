@@ -19,6 +19,8 @@ export class NavbarComponent implements OnInit {
   paytm: string;
   LoggedIn: boolean = false;
   msg: string = '';
+  forgetpass = 0;
+  otp: any;
 
   constructor(private http: HttpClient) {
     window.addEventListener('scroll', () => {
@@ -49,9 +51,15 @@ export class NavbarComponent implements OnInit {
       });
   }
 
-  toggleUser() {
-    this.isNewUser = !this.isNewUser;
-    this.isRegUser = !this.isRegUser;
+  toggleUser(mode) {
+    if (mode == 1) {
+      this.isRegUser = true;
+      this.isNewUser = false;
+    } else {
+      this.isRegUser = false;
+      this.isNewUser = true;
+    }
+    this.forgetpass = 0;
   }
 
   log_in() {
@@ -147,4 +155,51 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  requestpass() {
+    this.forgetpass = 2;
+    this.http.post('http://localhost:3000/reset', JSON.stringify({
+      email: this.email
+    }), {
+      withCredentials: true
+    }).subscribe((data: any) => {
+      console.log(data);
+    }, (err) => {
+      this.msg = 'Cannot connect to server.';
+      $('#status').modal('show');
+    })
+  }
+
+  newp() {
+    this.http.post('http://localhost:3000/newpass', JSON.stringify({
+      otp: this.otp,
+      password: this.password
+    }),{
+      withCredentials: true
+    }).subscribe((data: any) => {
+      console.log(data);
+      if(data.status === 'Password Changed') {
+        this.msg = 'Password Changed.'
+        $('#status').modal('show');
+        this.forgetpass = 0;
+      } else if (data.status === 'Wrong or expired otp') {
+        this.msg = 'Invalid or Expired or Used OTP.';
+        $('#status').modal('show');
+      } else if (data.status === 'Error') {
+        this.msg = 'Some Error Occured';
+        $('#status').modal('show');
+      } else if (data.status === 'Password should have atleast 8 characters') {
+        this.msg = 'Password should have atleast 8 characters.'
+        $('#status').modal('show');
+      }
+    }, (err) => {
+      this.msg = 'Cannot connect to server.';
+      $('#status').modal('show');
+    })
+  }
+
+  changemodal() {
+    $('#status').modal('hide');
+    if (this.forgetpass===2)
+    $('#myModal').modal('show');
+  }
 }

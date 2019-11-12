@@ -13,34 +13,59 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <!-- Modal body -->
-        <div class="modal-body">
-          <form *ngIf="isNewUser" class="new-user">
-            <label for="text">Name:</label>
-            <input type="text" class="name" name="name" [(ngModel)] = "name">
-            <label for="text">Email:</label>
-            <input type="text" class="email" name="email" [(ngModel)] = "email">
-            <label for="text">Password:</label>
-            <input type="password" class="password" name="password" [(ngModel)] = "password">
-            <label for="text">Paytm Number:</label>
-            <input type="text" class="paytm-contact" name="paytm" [(ngModel)] = "paytm">
-          </form>
-          <form *ngIf="isRegUser" class="reg-user">
-            <label for="text">Email:</label>
-            <input type="text" class="email" name="email" [(ngModel)] = "email">
-            <label for="text">Password:</label>
-            <input type="password" class="password" name="password" [(ngModel)] = "password">
-          </form>
-          <div class="action">
-            <button *ngIf="isNewUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Register</button>
-            <button *ngIf="isRegUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Sign-in</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-          </div>
+        <div *ngIf="forgetpass === 0" class="modal-body">
+            <form *ngIf="isNewUser" class="new-user">
+              <label for="text">Name:</label>
+              <input type="text" class="name" name="name" [(ngModel)] = "name">
+              <label for="text">Email:</label>
+              <input type="text" class="email" name="email" [(ngModel)] = "email">
+              <label for="text">Password:</label>
+              <input type="password" class="password" name="password" [(ngModel)] = "password">
+              <label for="text">Paytm Number:</label>
+              <input type="text" class="paytm-contact" name="paytm" [(ngModel)] = "paytm">
+            </form>
+            <form *ngIf="isRegUser" class="reg-user">
+              <label for="text">Email:</label>
+              <input type="text" class="email" name="email" [(ngModel)] = "email">
+              <label for="text">Password:</label>
+              <input type="password" class="password" name="password" [(ngModel)] = "password">
+            </form>
+            <div class="action">
+              <button *ngIf="isNewUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Register</button>
+              <button *ngIf="isRegUser" class="btn btn-success" (click)="log_in()" data-dismiss="modal">Sign-in</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+        <div *ngIf="forgetpass === 2" class="modal-body">
+            <form class="new-user">
+                <label for="text">OTP:</label>
+                <input type="text" class="otp" name="otp" [(ngModel)] = "otp">
+                <label for="text">New Password:</label>
+                <input type="password" class="password" name="password" [(ngModel)] = "password">
+                <label for="info"><small>Check mail for OTP</small></label>
+            </form>
+            <div class="action">
+                <button class="btn btn-success" (click)="newp()" data-dismiss="modal">Update</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+        <div *ngIf="forgetpass === 1" class="modal-body">
+            <form class="new-user">
+                <label for="text">Email:</label>
+                <input type="text" class="email" name="email" [(ngModel)] = "email">
+            </form>
+            <div class="action">
+                <button class="btn btn-success" (click)="requestpass()" data-dismiss="modal">Request OTP</button>
+                <button class="btn btn-success" (click)="forgetpass = 2" data-dismiss="modal">Enter OTP</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
         </div>
         
         <!-- Modal footer -->
-        <div class="modal-footer" style="justify-content: center;">
-            <p *ngIf="isRegUser">Do not have a account? <a (click)="toggleUser()">Click Here!</a></p>
-            <p *ngIf="isNewUser">Already Have an account? <a (click)="toggleUser()">Click Here!</a></p>
+        <div class="modal-footer" style="display: flex;flex-flow: column;justify-content: center;">
+            <p *ngIf="isRegUser">Do not have a account? <a (click)="toggleUser(0)">Click Here!</a></p>
+            <p *ngIf="isNewUser || forgetpass!=0">Already Have an account? <a (click)="toggleUser(1)">Click Here!</a></p>
+            <p *ngIf="isRegUser && forgetpass!=1" >Forgot Password? <a (click)="forgetpass = 1">Click Here!</a></p>
         </div>
         
       </div>
