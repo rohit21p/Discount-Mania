@@ -1,6 +1,6 @@
 .categories-container{
     height: 100vh;
-    background:  url('bg.jpg') no-repeat center center; 
+    background:  url('../bg-img/bg.jpg') no-repeat center center; 
     background-size: cover; 
     display: flex;
     padding: 10% 5% 5% 5%; 
