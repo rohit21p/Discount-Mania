@@ -52,7 +52,7 @@
 
 .heavy {
     font-weight: 500;
-    white-space:nowrap;
+    word-break: break-all;
 }
 
 .modal-msg {

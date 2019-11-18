@@ -1,13 +1,13 @@
 <div class="profile-container">
     <div class="profile" *ngIf="profile" >
         <div class="about-you">
-            <p class="name">Name: <span class="heavy">{{ profile.name }}</span></p>
-            <p class="email">Email: <span class="heavy">{{ profile.email }}</span></p>
-            <p class="phone-number">Contact Number: <span class="heavy">{{ "+91 "+profile.paytm }}</span></p>
-            <p class="offer-bought">Total Offer bought: <span class="heavy">{{ profile.bposts.length }}</span></p>
-            <p class="offer-posted">Total offer posted: <span class="heavy">{{ profile.pposts.length }}</span></p>
-            <p class="offer-posted">Total offer sold: <span class="heavy">{{ profile.sold || 0 }}</span></p>
-            <p class="balance">Your balance: <span class="heavy">{{ profile.balance || '0 INR'}}</span></p>
+            <p class="name">Name: <br> <span  class="heavy">{{ profile.name }}</span></p>
+            <p class="email">Email: <br> <span  class="heavy">{{ profile.email }}</span></p>
+            <p class="phone-number">Contact Number: <br> <span  class="heavy">{{ "+91 "+profile.paytm }}</span></p>
+            <p class="offer-bought">Total Offer bought: <span  class="heavy">{{ profile.bposts.length }}</span></p>
+            <p class="offer-posted">Total offer posted: <span  class="heavy">{{ profile.pposts.length }}</span></p>
+            <p class="offer-posted">Total offer sold: <span  class="heavy">{{ profile.sold || 0 }}</span></p>
+            <p class="balance">Your balance: <span  class="heavy">{{ profile.balance || '0 INR'}}</span></p>
             <button class="btn btn-primary" style="align-self: center;margin:15px;" (click)="reqmoney()">Get Money to Paytm</button>
         </div>
         <div class="offers" data-simplebar>
